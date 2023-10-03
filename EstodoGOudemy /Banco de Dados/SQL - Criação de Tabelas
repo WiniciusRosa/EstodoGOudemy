@@ -4,7 +4,7 @@ CREATE TABLE "users" (
    "password" varchar NOT NULL,
    "email" varchar UNIQUE NOT NULL,
    "created_at" timestamptz NOT NULL DEFAULT (now())
-   )
+   );
    
  CREATE TABLE "categorias" (
    "id" serial PRIMARY KEY NOT NULL,
@@ -13,8 +13,8 @@ CREATE TABLE "users" (
    "type" varchar NOT NULL,
    "description" varchar NOT NULL,
    "created_at" timestamptz NOT NULL DEFAULT (now())
-   )  
-   ALTER TABLE "categorias" ADD FOREIGN KEY ("user_id") references "users" ("id")
+   );
+   ALTER TABLE "categorias" ADD FOREIGN KEY ("user_id") references "users" ("id");
    
  CREATE TABLE "accounts" (
    "id" serial PRIMARY KEY NOT NULL,
@@ -26,10 +26,10 @@ CREATE TABLE "users" (
    "value" integer NOT NULL,
    "date" date NOT NULL,
    "created_at" timestamptz NOT NULL DEFAULT (now())
-   )   
+   );   
   
-   ALTER TABLE "accounts" ADD FOREIGN KEY ("user_id") references "users" ("id")
-   ALTER TABLE "accounts" ADD FOREIGN KEY ("category_id") references "categorias" ("id")
+   ALTER TABLE "accounts" ADD FOREIGN KEY ("user_id") references "users" ("id");
+   ALTER TABLE "accounts" ADD FOREIGN KEY ("category_id") references "categorias" ("id");
    
    
    DROP TABLE users;
